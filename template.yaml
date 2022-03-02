@@ -76,6 +76,51 @@ spec:
               title: URL Template
               description: "https://jira.atlassian.net/browse/JIRA-123 the URL Template would be https://jira.atlassian.net/browse/JIRA-<num>"
 
+    - title: Codefresh configuration
+      required:
+        - useCodefresh
+      properties:
+        useCodefresh:
+          title: Set up Codefresh pipeline
+          type: string
+          enum:
+            - "Yes"
+            - "No"
+          default: "Yes"
+        codefreshTags:
+          title: Codefresh tags
+          type: array
+          items:
+            type: string
+          default:
+            - "golang"
+          ui:options:
+            orderable: false
+
+    - title: Codacy configuration
+      required:
+        - useCodacy
+      properties:
+        useCodacy:
+          title: Set up Codacy pipeline
+          type: string
+          enum:
+            - "Yes"
+            - "No"
+          default: "Yes"
+
+    - title: Terraform configuration
+      required:
+        - useTerraform
+      properties:
+        useTerraform:
+          title: Set up Terraform pipeline
+          type: string
+          enum:
+            - "Yes"
+            - "No"
+          default: "Yes"
+
   steps:
     - id: template
       name: Fetch Skeleton + Template
