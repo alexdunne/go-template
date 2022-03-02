@@ -45,12 +45,19 @@ spec:
               - github.com
 
     - title: Repo configuration
+      required:
+        - repoTopics
+        - repoAutoLinking
       properties:
         repoTopics:
           title: Repository Topics
           type: array
           items:
             type: string
+          default:
+            - "go"
+            - "software-engineering"
+            - "core-software-team"
           ui:options:
             orderable: false
         repoAutoLinking:
