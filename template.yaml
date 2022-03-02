@@ -13,7 +13,7 @@ spec:
   type: service
 
   parameters:
-    - title: Provide some simple information
+    - title: Backstage information
       required:
         - component_id
         - owner
@@ -43,6 +43,31 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+
+    - title: Repo configuration
+      properties:
+        repoTopics:
+          title: Repository Topics
+          type: array
+          items:
+            type: string
+          ui:options:
+            orderable: false
+        repoAutoLinking:
+          title: Repository Autolinking
+          type: object
+          required:
+            - keyPrefix
+            - urlTemplate
+          properties:
+            keyPrefix:
+              type: string
+              title: Key Prefix
+              description: "JIRA-123 the prefix would be JIRA-"
+            urlTemplate:
+              type: string
+              title: URL Template
+              description: "https://jira.atlassian.net/browse/JIRA-123 the URL Template would be https://jira.atlassian.net/browse/JIRA-<num>"
 
   steps:
     - id: template
